@@ -121,16 +121,19 @@ var SogouGenerator = yeoman.generators.Base.extend({
             var bg = {
                 page: 'background.html'
             }
+            function stringify(value){ 
+            	return JSON.stringify(value, null, 2). sreplace(/\n/g, '\n  ');
+            }
 
             if (this.manifest.name) {               
-                manifest['id'] = JSON.stringify('com.sogou.'+ this.manifest.name, null, 2).replace(/\n/g, '\n  ');
-                manifest['name'] = JSON.stringify(this.manifest.name, null, 2).replace(/\n/g, '\n  ');
+                manifest['id'] = stringify('com.sogou.'+ this.manifest.name);
+                manifest['name'] = stringify(this.manifest.name);
             }
             if (this.manifest.description) {
-                manifest['description'] = JSON.stringify(this.manifest.description, null, 2).replace(/\n/g, '\n  ');
+                manifest['description'] = stringify(this.manifest.description);
             }
             if (this.manifest.author) {
-                manifest['author'] = JSON.stringify(this.manifest.author, null, 2).replace(/\n/g, '\n  ');
+                manifest['author'] = stringify(this.manifest.author);
             }
             // add browser / page action field
             if (this.manifest.action > 0) {
