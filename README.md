@@ -1,4 +1,4 @@
-# generator-sogou [![Build Status](https://secure.travis-ci.org/goodwjf/generator-sogou.png?branch=master)](https://travis-ci.org/goodwjf/generator-sogou)
+# generator-sogou 
 
 > [Yeoman](http://yeoman.io) generator
 
