@@ -122,7 +122,7 @@ var SogouGenerator = yeoman.generators.Base.extend({
                 page: 'background.html'
             }
             function stringify(value){ 
-            	return JSON.stringify(value, null, 2). sreplace(/\n/g, '\n  ');
+            	return JSON.stringify(value, null, 2).replace(/\n/g, '\n  ');
             }
 
             if (this.manifest.name) {               
