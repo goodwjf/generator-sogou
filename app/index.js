@@ -22,7 +22,7 @@ var SogouGenerator = yeoman.generators.Base.extend({
             default: (this.appname) ? this.appname : 'SogouExplorerApp'
         }, {
             name: 'description',
-            message: '请给扩展写个备注', //How would you like to describe this extension?
+            message: '请简要描述此扩展', //How would you like to describe this extension?
             default: 'My SogouExplorerApp Extension'
         }, {
             name: 'author',
@@ -147,18 +147,18 @@ var SogouGenerator = yeoman.generators.Base.extend({
                 };
                 var title = (this.manifest.action === 1) ? 'browser_action' : 'page_action';
                 bg.page = (this.manifest.action === 1) ? 'background_browseraction.html' : 'background_pageaction.html';
-                manifest[title] = JSON.stringify(action, null, 2).replace(/\n/g, '\n  ');
+                manifest[title] = stringify(action);
             }
-            manifest['background'] = JSON.stringify(bg, null, 2).replace(/\n/g, '\n  ');
+            manifest['background'] = stringify(bg);
             // add options page field.
             if (this.manifest.options) {
                 manifest.options_page = '"options.html"';
             }
             // add omnibox keyword field.
             if (this.manifest.omnibox) {
-                manifest.omnibox = JSON.stringify({
+                manifest.omnibox = stringify({
                     keyword: this.manifest.name
-                }, null, 2).replace(/\n/g, '\n  ');
+                });
             }
             // add contentscript field.
             if (this.manifest.contentscript) {
@@ -168,7 +168,7 @@ var SogouGenerator = yeoman.generators.Base.extend({
                     run_at: 'document_end',
                     all_frames: false
                 }];
-                manifest.content_scripts = JSON.stringify(contentscript, null, 2).replace(/\n/g, '\n  ');
+                manifest.content_scripts = stringify(contentscript);
             }
             // add generate permission field.
             for (var p in this.manifest.permissions) {
@@ -182,7 +182,7 @@ var SogouGenerator = yeoman.generators.Base.extend({
                 permissions.push('https://*/*');
             }
             if (permissions.length > 0) {
-                manifest.permissions = JSON.stringify(permissions, null, 2).replace(/\n/g, '\n  ');
+                manifest.permissions = stringify(permissions);
             }
             for (var i in manifest) {
                 items.push(['  "', i, '": ', manifest[i]].join(''));
