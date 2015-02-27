@@ -4,9 +4,9 @@
         zip = require('gulp-zip'),
         connect = require('gulp-connect');
     var pkg = require('./app/manifest.json'),
-        _dist = "C:/Users/" + pkg.author + "/AppData/Roaming/SogouExplorer/Extension/" + pkg.id + "/" + pkg.version,
+        _dist = process.env.USERPROFILE.replace(/\\/g,"\/") + "/AppData/Roaming/SogouExplorer/Extension/" + pkg.id + "/" + pkg.version,
         _sextName = pkg.id + "_v" + pkg.version;
-    gulp.task('build', ['zip'], function() {
+    gulp.task('build', ['sext'], function() {
         connect.server({
             root: 'app',
             livereload: true
@@ -19,7 +19,7 @@
     gulp.task('reload', function() {
         gulp.src('app/**/*.*').pipe(connect.reload());
     });
-    gulp.task('zip', function() {
+    gulp.task('sext', function() {
         return gulp.src('app/**/*.*').pipe(zip(_sextName + '.sext')).pipe(gulp.dest('sext'));
     });
     /*   

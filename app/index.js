@@ -18,25 +18,25 @@ var SogouGenerator = yeoman.generators.Base.extend({
         this.log(yosay('Welcome to the groovy Sogou generator!'));
         var prompts = [{
             name: 'name',
-            message: '请给扩展起个名字', //What would you like to call this extension?
+            message: 'name', //What would you like to call this extension?
             default: (this.appname) ? this.appname : 'SogouExplorerApp'
         }, {
             name: 'description',
-            message: '请简要描述此扩展', //How would you like to describe this extension?
+            message: 'description', //How would you like to describe this extension?
             default: 'My SogouExplorerApp Extension'
         }, {
             name: 'author',
-            message: '请填写搜狗ID (必填)', //How would you like to describe this extension?
-            default: 'wangjianfeng'
+            message: 'author', //How would you like to describe this extension?
+            default: 'Sogou'
         }, {
             type: 'list',
             name: 'action',
-            message: '请选择您需要使用的UI Action', //Would you like to use UI Action?
+            message: 'Would you like to use UI Action?', //Would you like to use UI Action?
             choices: ['No', 'Browser', 'Page']
         }, {
             type: 'checkbox',
             name: 'uifeatures',
-            message: '请选择您需要使用到的具体UI模块', //Would you like more UI Features?
+            message: 'Would you like more UI Features?', //Would you like more UI Features?
             choices: [{
                 value: 'options',
                 name: 'Options Page',
@@ -53,7 +53,7 @@ var SogouGenerator = yeoman.generators.Base.extend({
         }, {
             type: 'checkbox',
             name: 'permissions',
-            message: '请选择您要启用的权限（permissions）', //Would you like to use permissions
+            message: 'Would you like to use permissions?', //Would you like to use permissions
             choices: [{
                 value: 'tabs',
                 name: 'Tabs',
@@ -121,12 +121,12 @@ var SogouGenerator = yeoman.generators.Base.extend({
             var bg = {
                 page: 'background.html'
             }
-            function stringify(value){ 
-            	return JSON.stringify(value, null, 2).replace(/\n/g, '\n  ');
-            }
 
-            if (this.manifest.name) {               
-                manifest['id'] = stringify('com.sogou.'+ this.manifest.name);
+                function stringify(value) {
+                    return JSON.stringify(value, null, 2).replace(/\n/g, '\n  ');
+                }
+            if (this.manifest.name) {
+                manifest['id'] = stringify('com.sogou.' + this.manifest.name);
                 manifest['name'] = stringify(this.manifest.name);
             }
             if (this.manifest.description) {
@@ -231,8 +231,8 @@ var SogouGenerator = yeoman.generators.Base.extend({
             this.src.copy('styles/main.css', 'app/styles/main.css');
         },
         assets: function() {
-            this.src.copy('images/icon-16.png', 'app/images/icon-16.png');
-            this.src.copy('images/icon-128.png', 'app/images/icon-128.png');
+            this.src.copy('images/default.ico', 'app/default.ico');
+            this.src.copy('images/default-big.png', 'app/default-big.png');
         }
     },
     end: function() {
