@@ -15,7 +15,7 @@ var SogouGenerator = yeoman.generators.Base.extend({
     prompting: function() {
         var done = this.async();
         // Have Yeoman greet the user.
-        this.log(yosay('Welcome to the groovy Sogou generator!'));
+        this.log(yosay('Welcome to the groovy Sogou generator! now, let\'s config the manifest.json'));
         var prompts = [{
             name: 'name',
             message: 'name', //What would you like to call this extension?
