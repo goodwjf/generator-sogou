@@ -25,6 +25,16 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 
 To install generator-sogou from npm, run:
 
+     _sogou_
+    |       |
+    |--(o)--|
+   `---------´
+    ( _´U`_ )
+    /___A___\
+     |  ~  |
+   __'.___.'__
+ ´   `  |° ´ Y `
+
 ```bash
 $ npm install -g generator-sogou
 ```
