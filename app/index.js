@@ -2,7 +2,7 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
-var yosay = require('yosay');
+var yosay = require('yosay-sogou');
 var SogouGenerator = yeoman.generators.Base.extend({
     initializing: function() {
         this.pkg = require('../package.json');
