@@ -1,6 +1,6 @@
 'use strict';
 
-// Reload client for Chrome Apps & Extensions.
+// Reload client for sogouExplorer Extensions.
 // The reload client has a compatibility with livereload.
 // WARNING: only supports reload command.
 

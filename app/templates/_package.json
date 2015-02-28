@@ -1,16 +1,18 @@
 {
-  "name": "package",
-  "version": "1.0.0",
-  "description": "build SogouExplorer Extension",
-  "repository": {},
-  "dependencies": {},
-  "devDependencies": {
-    "gulp": "^3.8.11",
-    "gulp-changed": "^1.1.1",
-    "gulp-connect": "^2.2.0",
-    "gulp-delete-lines": "0.0.7",
-    "gulp-json-editor": "^2.2.1",
-    "gulp-prompt": "^0.1.2",
-    "gulp-zip": "^2.0.3"
-  }
+    "name": "SogouExplorerExtension",
+    "version": "1.0.0",
+    "description": "build SogouExplorer Extension",
+    "repository": {},
+    "private": true,
+    "dependencies": {},
+    "devDependencies": {
+        "gulp": "^3.8.11",
+        "gulp-changed": "^1.1.1",
+        "gulp-connect": "^2.2.0",
+        "gulp-delete-lines": "0.0.7",
+        "gulp-json-editor": "^2.2.1",
+        "gulp-prompt": "^0.1.2",
+        "gulp-zip": "^2.0.3"
+    },
+    "readmeFilename": "README.md"
 }

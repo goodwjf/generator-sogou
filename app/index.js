@@ -100,18 +100,13 @@ var SogouGenerator = yeoman.generators.Base.extend({
             this.dest.mkdir('app');
             this.src.copy('_package.json', 'package.json');
             this.src.copy('_bower.json', 'bower.json');
-            this.src.copy('readme.md', 'readme.md');
+            this.src.copy('README.md', 'README.md');
         },
         projectfiles: function() {
             this.src.copy('editorconfig', '.editorconfig');
             this.src.copy('jshintrc', '.jshintrc');
         },
         gulp: function() {
-            var done = this.async();
-            // 安装gulp模块, this.npmInstall()会解决模块安装问题，对同一模块只安装一次  
-            this.npmInstall(['gulp', 'gulp-connect'], {
-                'saveDev': true
-            }, done);
             this.template('gulpfile.js');
         },
         manifest: function() {
@@ -120,11 +115,11 @@ var SogouGenerator = yeoman.generators.Base.extend({
             var items = [];
             var bg = {
                 page: 'background.html'
-            }
+            };
 
-                function stringify(value) {
-                    return JSON.stringify(value, null, 2).replace(/\n/g, '\n  ');
-                }
+            function stringify(value) {
+                return JSON.stringify(value, null, 2).replace(/\n/g, '\n  ');
+            }
             if (this.manifest.name) {
                 manifest['id'] = stringify('com.sogou.' + this.manifest.name);
                 manifest['name'] = stringify(this.manifest.name);
