@@ -41,14 +41,18 @@ To install generator-sogou from npm, run:
 $ npm install -g generator-sogou
 ```
 
-Finally, initiate the generator:
+initiate the generator:
 
 ```bash
 $ yo sogou
 ```
-
+build a sogouExplorer extension:
 ```bash
 $ gulp build
+```
+Finally, create a sext file:
+```bash
+$ gulp sext
 ```
 
 
