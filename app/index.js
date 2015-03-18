@@ -55,16 +55,8 @@ var SogouGenerator = yeoman.generators.Base.extend({
             name: 'permissions',
             message: 'Would you like to use permissions?', //Would you like to use permissions
             choices: [{
-                value: 'tabs',
-                name: 'Tabs',
-                checked: false
-            }, {
-                value: 'bookmark',
+                value: 'bookmarks',
                 name: 'Bookmarks',
-                checked: false
-            }, {
-                value: 'cookie',
-                name: 'Cookies',
                 checked: false
             }, {
                 value: 'history',
@@ -73,6 +65,42 @@ var SogouGenerator = yeoman.generators.Base.extend({
             }, {
                 value: 'management',
                 name: 'Management',
+                checked: false
+            }, {
+                value: 'idle',
+                name: 'Idle',
+                checked: false
+            }, {
+                value: 'sidebarAction',
+                name: 'SidebarAction',
+                checked: false
+            }, {
+                value: 'webNavigation',
+                name: 'WebNavigation',
+                checked: false
+            }, {
+                value: 'alarms',
+                name: 'Alarms',
+                checked: false
+            }, {
+                value: 'topSites',
+                name: 'TopSites',
+                checked: false
+            }, {
+                value: 'notifications',
+                name: 'Notifications',
+                checked: false
+            }, {
+                value: 'storage',
+                name: 'Storage',
+                checked: false
+            }, {
+                value: 'blueTip',
+                name: 'BlueTip',
+                checked: false
+            }, {
+                value: 'eWall',
+                name: 'EWall',
                 checked: false
             }]
         }];
@@ -87,11 +115,19 @@ var SogouGenerator = yeoman.generators.Base.extend({
             this.manifest.options = isChecked(answers.uifeatures, 'options');
             this.manifest.omnibox = isChecked(answers.uifeatures, 'omnibox');
             this.manifest.contentscript = isChecked(answers.uifeatures, 'contentscript');
-            this.manifest.permissions.tabs = isChecked(answers.permissions, 'tabs');
+
             this.manifest.permissions.bookmarks = isChecked(answers.permissions, 'bookmarks');
-            this.manifest.permissions.cookies = isChecked(answers.permissions, 'cookies');
             this.manifest.permissions.history = isChecked(answers.permissions, 'history');
             this.manifest.permissions.management = isChecked(answers.permissions, 'management');
+            this.manifest.permissions.idle = isChecked(answers.permissions, 'idle');
+            this.manifest.permissions.sidebarAction = isChecked(answers.permissions, 'sidebarAction');
+            this.manifest.permissions.webNavigation = isChecked(answers.permissions, 'webNavigation');
+            this.manifest.permissions.alarms = isChecked(answers.permissions, 'alarms');
+            this.manifest.permissions.topSites = isChecked(answers.permissions, 'topSites');
+            this.manifest.permissions.notifications = isChecked(answers.permissions, 'notifications');
+            this.manifest.permissions.storage = isChecked(answers.permissions, 'storage');
+            this.manifest.permissions.blueTip = isChecked(answers.permissions, 'blueTip');
+            this.manifest.permissions.eWall = isChecked(answers.permissions, 'eWall');
             done();
         }.bind(this));
     },
@@ -170,11 +206,6 @@ var SogouGenerator = yeoman.generators.Base.extend({
                 if (this.manifest.permissions[p]) {
                     permissions.push(p);
                 }
-            }
-            // add generic match pattern field.
-            if (this.manifest.permissions.tabs) {
-                permissions.push('http://*/*');
-                permissions.push('https://*/*');
             }
             if (permissions.length > 0) {
                 manifest.permissions = stringify(permissions);
