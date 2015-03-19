@@ -53,7 +53,16 @@ gulp.task('sext_dev', function() {
 
 
 
+
 //publish
+gulp.task('publish', ['clean'], function() {
+    console.log("The successful !");
+});
+// clean
+gulp.task('clean',["sext"], function() {
+  return gulp.src(_tempDir, {read: false}).pipe(clean({force: true}));
+});
+//sext
 gulp.task('sext', ['manifest'], function() {
     var filters = {
         'filters': ['<script src="scripts/chromereload.js"></script>']
@@ -86,10 +95,6 @@ gulp.task('minifyjs',['copy'], function() {
     return gulp.src(_js).pipe(uglify(opt)).pipe(gulp.dest(_tempJsDir));
 });
 //copy
-gulp.task('copy',['clean'],function() {
+gulp.task('copy',function() {
     return gulp.src(_copyFiles).pipe(gulp.dest(_tempDir));
-});
-// clean
-gulp.task('clean', function() {
-  return gulp.src(_tempDir, {read: false}).pipe(clean({force: true}));
 });
