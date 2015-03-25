@@ -50,9 +50,9 @@ build a sogouExplorer extension:
 ```bash
 $ gulp build
 ```
-Finally, create a sext file:
+Finally, publish a sext file:
 ```bash
-$ gulp sext
+$ gulp publish
 ```
 
 

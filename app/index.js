@@ -30,8 +30,8 @@ var SogouGenerator = yeoman.generators.Base.extend({
             default: 'Sogou'
         }, {
             type: 'list',
-            name: 'action',
-            message: 'Would you like to use UI Action?', //Would you like to use UI Action?
+            name: 'action',//用 browser actions 可以在chrome主工具条的地址栏右侧增加一个图标;使用page actions把图标放置到地址栏里
+            message: 'Would you like to use UI Action?', //Would you like to use UI Action? 
             choices: ['No', 'Browser', 'Page']
         }, {
             type: 'checkbox',
@@ -46,7 +46,7 @@ var SogouGenerator = yeoman.generators.Base.extend({
                 name: 'Content Scripts',
                 checked: false
             }, {
-                value: 'omnibox',
+                value: 'omnibox',//需要指定像素为16x16的图标，以便当用户输入关键字时，在地址栏中显示。
                 name: 'Omnibox',
                 checked: false
             }]

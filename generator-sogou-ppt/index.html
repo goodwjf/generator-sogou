@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>generator-sogou - PPT演示文档  </title>
+	<link rel="stylesheet" href="src/css/webslide.css" />
+	<link rel="stylesheet" href="src/css/codecolorer.css" />
+</head>
+<body>
+
+<div id="slide" >
+<div class="slides">
+	<section id="cover" class="step" >
+		<section class="title">
+			<h1>Sogou浏览器插件 自动化工具</h1>
+			<h2>generator-sogou:<a href="https://github.com/goodwjf/generator-sogou" target="_blank">github</a></h2>
+		</section>
+	</section>
+	<section id="slide2" class="step slide rebuild">
+		<h1 class="header">省去了那些环节？</h1>
+		<ul data-build>
+			<li>目录结构的构建</li>
+			<li>manifest文件的配置</li>
+			<li>自动压缩sext包文件</li>
+		</ul>
+	</section>
+	
+	<section id="slide3" class="step slide rebuild">
+		<h1 class="header">解决了那些问题？</h1>
+		<ul data-build>
+			<li>修改代码需手动重启的问题</li>
+			<li>卸载插件误删除源码的问题</li>
+			<li>发版需手动修改manifest文件的问题</li>
+			<li>发版需手动压缩代码 删除注释的问题</li>
+		</ul>
+	</section>
+	<section id="slide4" class="step slide rebuild">
+		<h1>关于 generator-sogou</h1>
+		<div data-build><h2>长什么样子？</h2>
+		<ul>
+			<li>
+ 				<a href="src\img\yo.png" target="_blank" style="display:inline-block"><img src="src\img\yeoman.png"></a>
+			</li>
+		</ul>
+		<h2>怎么来的？</h2>
+		<ul>
+			<li>基于: <a href = "http://yeoman.io/" target="_blank">Yeoman</a></li>
+			<li>包括：<a href = "https://github.com/yeoman/yo" target="_blank">yo</a> 
+			 <a href = "http://gulpjs.com/" target="_blank">gulp</a>/Grunt 
+			 <a href = "http://bower.io/" target="_blank">Bower</a> 
+			</li>
+		</ul>
+		 
+		</div>
+	</section>
+
+	
+	<section id="book" class="step slide ">
+		<h1>使用generator-sogou</h1>
+		<div>
+	 		<h2>环境</h2>
+	 		<ul>
+	 			<li>安装 node： https://nodejs.org/ </li>
+	 			<li>安装 Yeoman ：$ npm install -g yo</li>
+	 			<li>安装 generator-sogou ：$ npm install -g generator-sogou</li>
+	 		</ul>
+	 		<h2>使用方法</h2>
+	 		<ul>
+	 			<li>创建sogou浏览器插件： $ yo sogou </li>
+	 			<li>打包sext文件并实时刷新插件：$ gulp build</li>
+	 			<li>发布新版插件：$ gulp publish</li>
+	 		</ul>
+		</div>
+	</section>
+	
+	<section id="resource" class="step slide">
+		<h1>总结实现逻辑</h1>
+		<ul>
+			<li>yo来生成项目目录</li>
+			<li>gulp实时监控code变化并刷新插件</li>
+			<li>gulp实现压缩去除注释js引用以及代码注释更新manifest文件</li>
+		</ul>
+	</section>
+	
+	<section id="quetion" class="step" >
+         <section class="title"><h1>Question?<br/><b>Q&A</b></h1></section>
+    </section>
+	<section id="end" class="step" >
+        <section class="title"><h1>The End<br/><b>Thank You</b></h1></section>
+    </section>
+</div>
+<div class="progress"><span></span></div>
+</div>
+<canvas id="myCanvas" width="1024" height="768">您的浏览器不支持HTML5,请升级或更换您的浏览器,强烈推荐您使用chrome浏览器。</canvas>
+<menu class="controls" id="slideCtrl">
+	<span class="tool home" onclick="location.hash='#cover'">!</span>
+	<span class="tool paint">p</span>
+	<span class="tool clearIt">d</span>
+</menu>
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+<script type="text/javascript" src="src/js/webslide.js"></script>
+</body>
+</html>
